@@ -1,0 +1,263 @@
+<div class="nav-container container-fluid">
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#home">
+      <img src="../../../assets/Images/logo-blue.png" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">{{ "Home" | translate }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about-us">{{ "About Us" | translate }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#founder">{{ "Founder" | translate }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#mission">{{
+            "MissionVision" | translate
+          }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#our-values">{{
+            "Our Values" | translate
+          }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#customers">{{
+            "Our Customers" | translate
+          }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact-us">{{
+            "ContactUs" | translate
+          }}</a>
+        </li>
+      </ul>
+      <div class="nav-lest-list d-flex">
+        <div class="user" *ngIf="isLoggedIn; else signIn">
+          <!-- Admin -->
+          <div *ngIf="username == 'Admin'" class="btn-group" dropdown>
+            <button
+              id="button-basic"
+              dropdownToggle
+              type="button"
+              class="btn btn-link nav-link dropdown-toggle"
+              aria-controls="dropdown-basic"
+            >
+              <img src="../../../assets/Images/admin-avatar.png" />
+              {{ username }}
+              <span class="caret"></span>
+            </button>
+            <ul
+              id="dropdown-basic"
+              *dropdownMenu
+              class="dropdown-menu"
+              role="menu"
+              aria-labelledby="button-basic"
+            >
+              <li role="menuitem">
+                <a class="dropdown-item">{{ "Current Orders" | translate }}</a>
+              </li>
+              <li role="menuitem">
+                <a class="dropdown-item">{{ "Archived Orders" | translate }}</a>
+              </li>
+              <li role="menuitem">
+                <a class="dropdown-item">{{ "Customers" | translate }}</a>
+              </li>
+              <li role="menuitem">
+                <a class="dropdown-item">{{
+                  "Statistics Chart" | translate
+                }}</a>
+              </li>
+              <li role="menuitem">
+                <a
+                  class="dropdown-item"
+                  data-bs-toggle="modal"
+                  data-bs-target="#Uploadfiles"
+                  (click)="setModalTitle1()"
+                  #uploadDrugs
+                >
+                  <i class="fa fa-upload"></i>
+                  {{ "Upload Drugs" | translate }}</a
+                >
+              </li>
+              <li role="menuitem">
+                <a
+                  class="dropdown-item"
+                  data-bs-toggle="modal"
+                  data-bs-target="#Uploadfiles"
+                  (click)="setModalTitle2()"
+                  #uploadPharmacies
+                >
+                  <i class="fa fa-upload"></i>
+                  {{ "Upload Pharmacies" | translate }}</a
+                >
+              </li>
+              <li role="menuitem">
+                <a
+                  class="dropdown-item"
+                  data-bs-toggle="modal"
+                  data-bs-target="#Uploadfiles"
+                  (click)="setModalTitle3()"
+                  #uploadLocations
+                >
+                  <i class="fa fa-upload"></i>
+                  {{ "Upload Speical Locations" | translate }}</a
+                >
+              </li>
+              <li class="divider dropdown-divider"></li>
+              <li role="menuitem">
+                <a class="dropdown-item">{{ "Sing Out" | translate }} </a>
+              </li>
+            </ul>
+            <div class="notification m-3">
+              <i class="fa fa-bell"> </i>
+            </div>
+          </div>
+          <!-- Pharmacy -->
+          <div *ngIf="username != 'Admin'" class="btn-group" dropdown>
+            <button
+              id="button-basic"
+              dropdownToggle
+              type="button"
+              class="btn btn-link nav-link dropdown-toggle"
+              aria-controls="dropdown-basic"
+            >
+              <img src="../../../assets/Images/mylogo.png" />
+              {{ user.message }}
+              <span class="caret"></span>
+            </button>
+            <ul
+              id="dropdown-basic"
+              *dropdownMenu
+              class="dropdown-menu"
+              role="menu"
+              aria-labelledby="button-basic"
+            >
+              <li role="menuitem">
+                <a class="dropdown-item">{{ "Current Orders" | translate }}</a>
+              </li>
+              <li role="menuitem">
+                <a class="dropdown-item">{{ "Archived Orders" | translate }}</a>
+              </li>
+              <li role="menuitem">
+                <a class="dropdown-item">{{
+                  "Pharmacy Profile" | translate
+                }}</a>
+              </li>
+              <li role="menuitem">
+                <a class="dropdown-item">{{ "Order Now" | translate }}</a>
+              </li>
+
+              <li class="divider dropdown-divider"></li>
+              <li role="menuitem">
+                <a class="dropdown-item">{{ "Sing Out" | translate }} </a>
+              </li>
+            </ul>
+            <div class="notification m-3">
+              <i class="fa fa-bell"> </i>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #signIn>
+          <div *ngIf="!isLoggedIn" class="form-inline my-2 my-lg-0 pr-2">
+            <a
+              routerLink="./login"
+              class="btn btn-outline-success rounded-pill btn-order mx-2 my-2 my-sm-0"
+              >{{ "Order Now" | translate }}</a
+            >
+            <a
+              routerLink="./login"
+              class="btn btn-outline-primary rounded-pill btn-login mx-2 my-2 my-sm-0"
+              >Sign in</a
+            >
+          </div>
+        </ng-template>
+        <div class="m-2" style="margin-right: auto; width: 59px">
+          <select
+            class="custom-select"
+            name="culture"
+            #selectedLang
+            (change)="switchLanguage(selectedLang.value)"
+          >
+            <option
+              *ngFor="let language of translate.getLangs()"
+              [selected]="language === translate.currentLang"
+            >
+              {{ language }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- UploadDrugs Modal -->
+<div
+  class="modal fade"
+  id="Uploadfiles"
+  tabindex="-1"
+  aria-labelledby="UploadLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="UploadLabel">{{ modalTitle }}</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          enctype="multipart/form-data"
+          #uploadDrugs="ngForm"
+          (ngSubmit)="UploadFiles()"
+          autocomplete="off"
+        >
+          <div class="input-group mb-3">
+            <input
+              type="file"
+              [(ngModel)]="uploadFile.file"
+              name="Drug"
+              class="form-control"
+              id="inputGroupFile02"
+            />
+            <label class="input-group-text" for="inputGroupFile02"
+              >Upload</label
+            >
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

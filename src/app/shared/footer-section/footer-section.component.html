@@ -1,0 +1,77 @@
+<footer>
+  <div class="content-section">
+    <div class="footer-logo d-flex">
+      <img src="../../assets/Images/footer-logo.png" />
+      <h4 class="text-white text-nowrap mt-4">Gaza Central Warehouse</h4>
+    </div>
+    <p>
+      The Gaza Central Warehouse Company for Drugs and Medical Supplies, is an
+      extension of the Central Gaza Drugstore, which was established by the late
+      pharmacist Hassan Youssef Shurrab in the year 1983 AD in Gaza City as the
+      first drug distribution warehouse in the Gaza Strip.
+    </p>
+    <div class="bottom-footer">
+      <div class="socail">
+        <a href="javascript:void(0)"
+          ><img src="../../assets/Images/facebookLogog.png"
+        /></a>
+        <a href="javascript:void(0)"
+          ><img src="../../assets/Images/WhatsApp-Logo-Icon.png"
+        /></a>
+      </div>
+      <div class="language-container">
+        <span>Language</span>
+        <div class="languages">
+          <!-- @*
+          <form
+            method="POST"
+            id="ar"
+            asp-controller="Home"
+            asp-action="SetLanguage"
+          >
+            <input type="hidden" name="culture" value="ar-SA" />
+            <input
+              type="hidden"
+              name="returnUrl"
+              value="@Context.Request.Path.Value"
+            />
+            <a href="javascript:void(0)" onclick="this.submit()">En</a>
+            <button type="submit">aaaaaaa</button>
+          </form>
+          *@ -->
+
+          <a class="nav-link"
+            href="javascript:void(0)"
+            onclick="ChangeLanguage('en-US','@Context.Request.Path.Value',this)"
+            >En</a
+          >
+          <a class="nav-link"
+            href="javascript:void(0)"
+            onclick="ChangeLanguage('ar-SA','@Context.Request.Path.Value',this)"
+            >العربية</a
+          >
+        </div>
+      </div>
+      <!-- @*
+      <div class="btn-group">
+        <button
+          type="button"
+          class="btn btn-danger dropdown-toggle"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Action
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+      </div>
+      *@ -->
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,24 @@
+
+/* our success*/
+
+#our-success {
+    margin: auto;
+    background-color: #ECF8FF;
+}
+
+    #our-success .item {
+        display: flex;
+        align-items: start;
+        /*justify-content: center;*/
+        margin-bottom: 2rem;
+    }
+
+        #our-success .item p {
+            text-align: left;
+        }
+
+        #our-success .item img {
+            margin-right: 2rem;
+            margin-left: 5rem;
+           /* margin-top: 1rem;*/
+        }

@@ -1,0 +1,33 @@
+.nav-container {
+  width: 100%;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(255, 255, 255);
+  filter: drop-shadow(0px 3px 6px #000000);
+  z-index: 1000;
+  opacity: 78%;
+}
+.custom-select {
+  display: inline-block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  color: #495057;
+  vertical-align: middle;
+  background: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.nav-container .form-inline a {
+  width: 120px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  border-radius: 26px;
+  font-size: 18px;
+  padding: 0px;
+}

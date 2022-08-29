@@ -1,0 +1,21 @@
+
+
+/* our values*/
+#our-values {
+    margin: auto
+}
+
+#our-values .card {
+    margin: 27px;
+    border-right: 3px solid #ABCE44;
+    box-shadow: -2px -0.5px 5px rgba(0,0,0,.15) !important;
+}
+
+#our-values .card-title {
+    text-align: left;
+    color: #0093DD
+}
+
+#our-values .card-text {
+    text-align: start;
+}

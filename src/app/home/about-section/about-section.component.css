@@ -1,0 +1,58 @@
+
+#about-us {
+    background: #fff;
+}
+
+.about-us-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+    .about-us-container .image {
+        max-width: 670px;
+        text-align: center;
+        width: 100%;
+    }
+
+        .about-us-container .image img {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+        }
+
+    .about-us-container > p,
+    .mission-description {
+        width: 100%;
+        max-width: calc(100% - 730px);
+        text-align: center;
+        position: relative;
+        color: #707070;
+        font-size: 16px;
+        line-height: 50px;
+        padding: 50px 0px;
+        text-align: left;
+    }
+
+        .about-us-container > p::after,
+        .about-us-container > p::before {
+            content: "";
+            background-image: url(../../../assets/icons/quotes_text.png);
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-size: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .about-us-container > p::after {
+            top: 0;
+            left: 0;
+        }
+
+        .about-us-container > p::before {
+            bottom: 0;
+            right: 0;
+        }
+

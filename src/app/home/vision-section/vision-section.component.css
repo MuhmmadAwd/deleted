@@ -1,0 +1,34 @@
+
+    #mission .letter {
+        background-color: #FCFFF1;
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+
+
+    #mission .vision {
+        background-color: #ECF8FF;
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+
+    #mission .img {
+        margin-bottom: 5rem;
+    }
+
+    #mission .section-title {
+        margin-bottom: 5rem;
+    }
+
+    #mission p {
+        text-align: center;
+        line-height: normal;
+    }

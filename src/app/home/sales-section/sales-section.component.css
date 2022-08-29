@@ -1,0 +1,112 @@
+
+
+.sales-box .sales-image {
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    left: calc(50% - 68px);
+    top: 68px;
+    z-index: 6;
+}
+
+.sales-box .sales-info {
+    padding-top: 80px;
+    border-top: 3px solid #A7CC3A;
+    background: #FFF;
+    box-shadow: 0px 3px 6px rgba(0,0,0,16%);
+    position: relative;
+}
+
+.sales-box .sales-region {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #E6E6E6;
+    height: 100%;
+    width: 100%;
+    display: none;
+    opacity: 0.8;
+}
+
+    .sales-box .sales-region img {
+        width: 30px;
+    }
+
+.sales-box:hover .sales-region {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.sales-box .sales-image img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+}
+
+.sales-box .sales-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3B3B3B;
+    margin-bottom: 20px;
+}
+
+
+.sales-box .sales-number {
+    border-top: 1px solid #EEE;
+    padding: 20px 0px;
+    color: #707070;
+}
+
+    .sales-box .sales-number img {
+        display: inline-block;
+        max-width: 30px;
+        margin-right: 20px;
+    }
+
+/*Sales*/
+
+.sales-swiper {
+    height: 450px;
+}
+
+    .sales-swiper .swiper-button-next, .sales-swiper .swiper-button-prev {
+        background: #0093DD;
+        color: #FFF;
+        width: 74px;
+        height: 74px;
+        line-height: 74px;
+        text-align: center;
+    }
+
+        .sales-swiper .swiper-button-prev:after, .sales-swiper .swiper-rtl .swiper-button-next:after, .sales-swiper .swiper-button-next:after, .sales-swiper .swiper-rtl .swiper-button-prev:after {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .sales-swiper .swiper-button-next:after, .sales-swiper .swiper-rtl .swiper-button-prev:after {
+            content: '\f30b';
+            font-family: 'Font Awesome 5 Pro';
+        }
+
+        .sales-swiper .swiper-button-prev:after, .sales-swiper .swiper-rtl .swiper-button-next:after {
+            content: '\f30a';
+            font-family: 'Font Awesome 5 Pro';
+        }
+
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: #0093DD;
+    width: 21px;
+    height: 21px;
+}
+
+.swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

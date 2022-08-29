@@ -1,0 +1,29 @@
+<!-- hero start -->
+<header id="home">
+  <h1>{{ "Gaza Central Warehouse Company" | translate }}</h1>
+
+  <p class="description">
+    {{
+      "Gaza Central Warehouse Company for Pharmaceuticals and Medical Supplies"
+        | translate
+    }}
+  </p>
+
+  <div *ngIf="username !== 'Admin'">
+    <p class="hint">{{ "create first order" | translate }}</p>
+    <a href="/order/Create" class="btn btn-order"
+      >{{ "Order Now" | translate }} <i class="fa fa-angle-double-right"></i>
+    </a>
+  </div>
+
+  <div class="d-flex flex-column icons">
+    <div class="mt-1"><img src="../../../assets/icons/phone.png" alt="" /></div>
+    <div class="mt-1">
+      <img src="../../../assets/icons/letter.png" alt="" />
+    </div>
+    <div class="mt-1">
+      <img src="../../../assets/icons/printer.png" alt="" />
+    </div>
+  </div>
+  <div class="blackShadow"></div>
+</header>
