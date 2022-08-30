@@ -8,7 +8,7 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  model:any = {}
+  model: any = {};
   currentLang!: string;
   constructor(
     public translate: TranslateService,
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   login() {
     console.log(this.model);
     this.account.login(this.model).subscribe(
-     (response) => {
+      (response) => {
         this.router.navigateByUrl('/');
       },
       (error) => {
@@ -39,5 +39,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
 }
