@@ -13,11 +13,10 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export abstract class ApiService<T> {
-  private readonly APIUrl = environment.APIUrl + this.getApiUrl();
+  ApiEndPoint!: string ;
+  APIUrl = environment.APIUrl
   private readonly Token = environment.Token;
   constructor(protected httpClient: HttpClient) {}
-
-  abstract getApiUrl(): string;
 
   getList(page: number, count: number): Observable<T[]> {
     let params = new HttpParams()
@@ -40,9 +39,8 @@ export abstract class ApiService<T> {
   }
 
   post(obj: T): Observable<any> {
-    console.log(`${this.APIUrl}`);
     return this.httpClient
-      .post(`${this.APIUrl}`, obj, {
+      .post(`${this.APIUrl}${this.ApiEndPoint}`, obj, {
         headers: new HttpHeaders({
           Authorization: ` Bearer ${this.Token}`,
         }),

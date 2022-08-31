@@ -6,17 +6,13 @@ import { ApiService } from './_api.service';
 @Injectable({
   providedIn: 'root',
 })
-export class UploadPharmacysService extends ApiService<UploadFile> {
-
+export class UploadExcelFileService extends ApiService<UploadFile> {
   constructor(protected http: HttpClient) {
     super(http);
   }
 
-  getApiUrl(): string {
-    return "DisplayOrders/ImportPharmacysInfoAsExcel";
-  }
-
-  UploadPharmacysInfo(PharmacysInfoFile: UploadFile) {
-    return this.post(PharmacysInfoFile)
+  UploadDrugInfo(ExcelInfoFile: UploadFile, ApiEndPoint: string) {
+    this.ApiEndPoint = ApiEndPoint;
+    return this.post(ExcelInfoFile);
   }
 }

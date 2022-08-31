@@ -8,6 +8,7 @@ import { ApiService } from './_api.service';
   providedIn: 'root',
 })
 export class AccountService extends ApiService<User> {
+
   currentUserSource = new ReplaySubject<User | any>(1);
   currentUser$ = this.currentUserSource.asObservable();
   username!: any;
@@ -15,7 +16,6 @@ export class AccountService extends ApiService<User> {
   constructor(protected http: HttpClient) {
     super(http);
   }
-
   getApiUrl(): string {
     return 'Authentication/Login';
   }

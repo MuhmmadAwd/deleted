@@ -88,7 +88,7 @@
                   class="dropdown-item"
                   data-bs-toggle="modal"
                   data-bs-target="#Uploadfiles"
-                  (click)="setModalTitle1()"
+                  (click)="setModalTitle(uploadDrugs)"
                   #uploadDrugs
                 >
                   <i class="fa fa-upload"></i>
@@ -100,7 +100,7 @@
                   class="dropdown-item"
                   data-bs-toggle="modal"
                   data-bs-target="#Uploadfiles"
-                  (click)="setModalTitle2()"
+                  (click)="setModalTitle(uploadPharmacies)"
                   #uploadPharmacies
                 >
                   <i class="fa fa-upload"></i>
@@ -112,7 +112,7 @@
                   class="dropdown-item"
                   data-bs-toggle="modal"
                   data-bs-target="#Uploadfiles"
-                  (click)="setModalTitle3()"
+                  (click)="setModalTitle(uploadLocations)"
                   #uploadLocations
                 >
                   <i class="fa fa-upload"></i>
@@ -121,7 +121,9 @@
               </li>
               <li class="divider dropdown-divider"></li>
               <li role="menuitem">
-                <a class="dropdown-item" (click)="logout()">{{ "Sing Out" | translate }} </a>
+                <a class="dropdown-item" (click)="logout()"
+                  >{{ "Sing Out" | translate }}
+                </a>
               </li>
             </ul>
             <div class="notification m-3">
@@ -196,8 +198,8 @@
             (change)="switchLanguage(selectedLang.value)"
           >
             <option
-              *ngFor="let language of translate.getLangs()"
-              [selected]="language === translate.currentLang"
+              *ngFor="let language of _TranslateService.getLangs()"
+              [selected]="language === _TranslateService.currentLang"
             >
               {{ language }}
             </option>
@@ -237,8 +239,8 @@
           <div class="input-group mb-3">
             <input
               type="file"
-              [(ngModel)]="uploadFile.file"
-              name="Drug"
+              [(ngModel)]="ExcelInfoFile.name"
+              name="ExcelInfoFile"
               class="form-control"
               id="inputGroupFile02"
             />

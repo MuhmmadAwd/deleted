@@ -1,9 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { UploadFile } from 'src/app/_model/upload-file';
-import { UploadDrugsService } from 'src/app/_services/upload-drugs.service';
-import { UploadLocationsService } from 'src/app/_services/upload-locations.service';
-import { UploadPharmacysService } from 'src/app/_services/upload-pharmacy.service';
+import { UploadExcelFileService } from 'src/app/_services/upload-excel-file.service';
 import { User } from '../../_model/user.model';
 import { AccountService } from '../../_services/account.service';
 
@@ -17,20 +15,13 @@ export class NavbarComponent implements OnInit {
   isLoggedIn!: boolean;
   user!: User;
   username!: any;
-  DrugInfoFile: any = {};
+  ExcelInfoFile: any = {};
   modalTitle!: string;
-  endpoint!: string;
-
-  @ViewChild('uploadDrugs') uploadDrugs!: ElementRef;
-  @ViewChild('uploadPharmacies') uploadPharmacies!: ElementRef;
-  @ViewChild('uploadLocations') uploadLocations!: ElementRef;
-
+  ApiEndPoint!: string;
   constructor(
     public _TranslateService: TranslateService,
     public _AccountService: AccountService,
-    public _UploadDrugsService: UploadDrugsService,
-    public _UploadPharmacysService: UploadPharmacysService,
-    public _UploadLocationsService: UploadLocationsService
+    public _UploadExcelFileService: UploadExcelFileService
   ) {}
 
   ngOnInit(): void {
@@ -67,36 +58,25 @@ export class NavbarComponent implements OnInit {
     this.isLoggedIn = false;
   }
 
-  setModalTitle1() {
-    this.modalTitle = this.uploadDrugs.nativeElement.innerText;
-    // this.endpoint = 'ImportDrugsInfoAsExcel';
-  }
-  setModalTitle2() {
-    this.modalTitle = this.uploadPharmacies.nativeElement.innerText;
-    // this.endpoint = 'ImportPharmacysInfoAsExcel';
-  }
-  setModalTitle3() {
-    this.modalTitle = this.uploadLocations.nativeElement.innerText;
-    // this.endpoint = 'ImportLocationsInfoAsExcel';
-  }
-
-  UploadDrugs() {
-    this._UploadDrugsService
-      .UploadDrugInfo(this.DrugInfoFile)
-      .subscribe((response: any) => {
-        console.log(response);
-      });
+  setModalTitle(a: HTMLElement) {
+    if (a.innerText.trim() == 'Upload Drugs') {
+      this.modalTitle = 'Upload Drugs';
+      this.ApiEndPoint = 'ImportDrugsInfoAsExcel';
+    } else if (a.innerText.trim() == 'Upload Pharmacies') {
+      this.modalTitle = 'Upload Pharmacies';
+      this.ApiEndPoint = 'ImportPharmacysInfoAsExcel';
+    } else {
+      this.modalTitle = 'Upload Location File';
+      this.ApiEndPoint = 'ImportLocationsInfoAsExcel';
+    }
   }
 
   UploadFiles() {
-    this.uploadModal.uploadFiles(this.uploadFile, this.endpoint).subscribe(
-      (response: any) => {
-        console.log(response, this.endpoint);
-      },
-      (error: Error) => {
-        console.log(error);
-      }
-    );
+    this._UploadExcelFileService
+      .UploadDrugInfo(this.ExcelInfoFile, this.ApiEndPoint)
+      .subscribe((response) => {
+        console.log(response);
+      });
   }
 
   // changeLang(lang: Event){
